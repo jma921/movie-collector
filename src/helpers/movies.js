@@ -1,11 +1,4 @@
 import { ref, firebaseAuth } from '../config/constants';
-// import _ from 'lodash';
-
-// export function auth(email, pw) {
-//   return firebaseAuth()
-//     .createUserWithEmailAndPassword(email, pw)
-//     .then(saveUser);
-// }
 
 export function addMovie(movie, uid) {
   const { id } = movie;
@@ -34,17 +27,3 @@ export async function getMoviesInCollection(uid) {
   console.log(movies);
   return Object.values(movies);
 }
-
-// export function resetPassword(email) {
-//   return firebaseAuth().sendPasswordResetEmail(email);
-// }
-
-// export function saveUser(user) {
-//   return ref
-//     .child(`users/${user.uid}/info`)
-//     .set({
-//       email: user.email,
-//       uid: user.uid,
-//     })
-//     .then(() => user);
-// }

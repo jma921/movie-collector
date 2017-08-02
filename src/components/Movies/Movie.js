@@ -27,10 +27,10 @@ class Movie extends Component {
 
   async componentDidMount() {
     const movieUrl = `https://api.themoviedb.org/3/movie/${this.props.match
-      .params.id}?api_key=9cfb734370df380453435206255cb5cf&language=en-US`;
+      .params.id}?api_key=${process.env.REACT_APP_MOVIE_DB_KEY}&language=en-US`;
     const videoUrl = `https://api.themoviedb.org/3/movie/${this.props.match
-      .params
-      .id}/videos?api_key=9cfb734370df380453435206255cb5cf&language=en-US`;
+      .params.id}/videos?api_key=${process.env
+      .REACT_APP_MOVIE_DB_KEY}&language=en-US`;
     const movieResponse = await fetch(movieUrl);
     const videoResponse = await fetch(videoUrl);
     const movie = await movieResponse.json();

@@ -11,7 +11,7 @@ class AddMovie extends Component {
     };
   }
   async fetchMovieData() {
-    const apiKey = '9cfb734370df380453435206255cb5cf';
+    const apiKey = process.env.REACT_APP_MOVIE_DB_KEY;
     const url = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&language=en-US&query=${this
       .state.searchQuery}&page=1&include_adult=false`;
     const response = await fetch(url);
