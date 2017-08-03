@@ -40,8 +40,8 @@ jobs:
         name: Deploy to firebase hosting.
         command: |
           if [ "${CIRCLE_BRANCH}" == "master" ]; then
-              npm run build
-              firebase deploy
+            npm run build
+            firebase deploy
           fi
 
 
