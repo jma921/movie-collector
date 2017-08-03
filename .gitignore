@@ -15,4 +15,4 @@ build
 npm-debug.log
 
 # firebase 
-.firebaserc
+#.firebaserc
