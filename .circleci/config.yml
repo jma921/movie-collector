@@ -41,7 +41,7 @@ jobs:
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
               npm run build
-              firebase deploy
+              firebase deploy --token "$FIREBASE_TOKEN"
             fi
 
 
