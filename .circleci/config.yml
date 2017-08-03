@@ -42,5 +42,5 @@ jobs:
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
               npm run build
               sudo npm install -g firebase-tools
-              firebase deploy --token "$FIREBASE_TOKEN"
+              firebase deploy --token "$FIREBASE_TOKEN" --non-interactive
             fi
