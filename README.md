@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/jma921/movie-collector.svg?style=svg)](https://circleci.com/gh/jma921/movie-collector)
+
 # Auth with React Router V4 and Firebase V3
 This is an example repo for authenticating with Firebase and React Router.
 
