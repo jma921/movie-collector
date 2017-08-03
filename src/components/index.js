@@ -19,17 +19,34 @@ import {
   DropdownMenu,
   DropdownItem,
 } from 'reactstrap';
-import Login from './Login';
-import Register from './Register';
-import Home from './Home';
-import Dashboard from './Dashboard/DashboardContainer';
-import Settings from './Settings/SettingsContainer';
-import Collection from './Collection/Collection';
-import Collections from './Collections/Collections';
-import AddMovie from './Movies/AddMovie';
-import Movie from './Movies/Movie';
 import { logout } from '../helpers/auth';
 import { firebaseAuth } from '../config/constants';
+// import Login from './Login';
+// import Register from './Register';
+// import Home from './Home';
+// import Dashboard from './Dashboard/DashboardContainer';
+// import Settings from './Settings/SettingsContainer';
+// import Collection from './Collection/Collection';
+// import Collections from './Collections/Collections';
+// import AddMovie from './Movies/AddMovie';
+// import Movie from './Movies/Movie';
+import asyncComponent from './AsyncComponent';
+
+const AsyncHome = asyncComponent(() => import('./Home'));
+const AsyncDashboard = asyncComponent(() =>
+  import('./Dashboard/DashboardContainer')
+);
+const AsyncLogin = asyncComponent(() => import('./Login'));
+const AsyncRegister = asyncComponent(() => import('./Register'));
+const AsyncSettings = asyncComponent(() =>
+  import('./Settings/SettingsContainer')
+);
+const AsyncCollection = asyncComponent(() => import('./Collection/Collection'));
+const AsyncCollections = asyncComponent(() =>
+  import('./Collections/Collections')
+);
+const AsyncAddMovie = asyncComponent(() => import('./Movies/AddMovie'));
+const AsyncMovie = asyncComponent(() => import('./Movies/Movie'));
 
 const DropdownLink = ({ label, to }) =>
   <Route
@@ -167,58 +184,58 @@ export default class App extends Component {
             </Navbar>
             <div>
               <Switch>
-                <Route path="/" exact component={Home} />
+                <Route path="/" exact component={AsyncHome} />
                 <PublicRoute
                   authed={this.state.authed}
                   path="/login"
-                  component={Login}
+                  component={AsyncLogin}
                 />
                 <PublicRoute
                   authed={this.state.authed}
                   user={this.state.user}
                   path="/register"
-                  component={Register}
+                  component={AsyncRegister}
                 />
                 <PrivateRoute
                   authed={this.state.authed}
                   user={this.state.user}
                   path="/dashboard"
-                  component={Dashboard}
+                  component={AsyncDashboard}
                 />
                 <PrivateRoute
                   authed={this.state.authed}
                   user={this.state.user}
                   path="/settings"
-                  component={Settings}
+                  component={AsyncSettings}
                 />
                 <PrivateRoute
                   authed={this.state.authed}
                   user={this.state.user}
                   path="/collection"
-                  component={Collection}
+                  component={AsyncCollection}
                 />
                 <Route
                   authed={this.state.authed}
                   path="/collections/:uid"
-                  component={Collections}
+                  component={AsyncCollections}
                 />
                 <PrivateRoute
                   authed={this.state.authed}
                   user={this.state.user}
                   path="/addmovie"
-                  component={AddMovie}
+                  component={AsyncAddMovie}
                 />
                 <PrivateRoute
                   authed={this.state.authed}
                   user={this.state.user}
                   path="/movie/:id"
-                  component={Movie}
+                  component={AsyncMovie}
                 />
                 <Route
                   authed={this.state.authed}
                   user={this.state.user}
                   path="/movies/:id"
-                  component={Movie}
+                  component={AsyncMovie}
                 />
                 <Route render={() => <h3>No Match</h3>} />
               </Switch>
