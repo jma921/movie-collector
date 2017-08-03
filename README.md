@@ -11,7 +11,7 @@ This is an example repo for authenticating with Firebase and React Router.
 * Simple Boostrap UI
 
 #### Instructions:
-* Swap out the firebase config in ```config/example.constants``` with your own and rename it to ```constants.js```
+* Swap out the firebase config variables in ```example.env``` with your own variables from firebase
 * Get a API key from [themoviedb.org](https://www.themoviedb.org/documentation/api) and change the ```REACT_APP_MOVIE_DB_KEY``` in ```example.env``` and rename it to ```.env```
 * ```npm install```
 * ```npm start```

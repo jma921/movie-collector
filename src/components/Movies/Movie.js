@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 import { addMovie, findMovieById, removeMovie } from '../../helpers/movies';
 
 class Movie extends Component {
@@ -35,6 +36,14 @@ class Movie extends Component {
     const videoResponse = await fetch(videoUrl);
     const movie = await movieResponse.json();
     const video = await videoResponse.json();
+    if (!this.props.user) {
+      this.setState({
+        movie,
+        video,
+        inCollection: false,
+      });
+      return;
+    }
     const inCollection = await findMovieById(movie.id, this.props.user.uid);
     this.setState({
       movie,

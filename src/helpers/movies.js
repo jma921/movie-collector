@@ -14,7 +14,6 @@ export async function findMovieById(id, uid) {
 export async function removeMovie(movie, uid) {
   const { id } = movie;
   const remove = await ref.child(`users/${uid}/${id}`).set(null);
-  console.log(remove);
   return remove;
 }
 
@@ -24,6 +23,5 @@ export async function getMoviesInCollection(uid) {
     .orderByChild('title')
     .once('value');
   const movies = await collection.val();
-  console.log(movies);
   return Object.values(movies);
 }

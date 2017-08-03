@@ -1,0 +1,9 @@
+{
+  "name": "functions",
+  "description": "Firebase Functions",
+  "dependencies": {
+    "express": "^4.15.3",
+    "firebase": "^3.1",
+    "firebase-functions": "https://storage.googleapis.com/firebase-preview-drop/node/firebase-functions/firebase-functions-preview.latest.tar.gz"
+  }
+}

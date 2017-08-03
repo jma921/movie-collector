@@ -26,6 +26,7 @@ import Home from './Home';
 import Dashboard from './Dashboard/DashboardContainer';
 import Settings from './Settings/SettingsContainer';
 import Collection from './Collection/Collection';
+import Collections from './Collections/Collections';
 import AddMovie from './Movies/AddMovie';
 import Movie from './Movies/Movie';
 import { logout } from '../helpers/auth';
@@ -197,6 +198,11 @@ export default class App extends Component {
                   path="/collection"
                   component={Collection}
                 />
+                <Route
+                  authed={this.state.authed}
+                  path="/collections/:uid"
+                  component={Collections}
+                />
                 <PrivateRoute
                   authed={this.state.authed}
                   user={this.state.user}
@@ -207,6 +213,12 @@ export default class App extends Component {
                   authed={this.state.authed}
                   user={this.state.user}
                   path="/movie/:id"
+                  component={Movie}
+                />
+                <Route
+                  authed={this.state.authed}
+                  user={this.state.user}
+                  path="/movies/:id"
                   component={Movie}
                 />
                 <Route render={() => <h3>No Match</h3>} />

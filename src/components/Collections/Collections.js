@@ -3,7 +3,7 @@ import { getMoviesInCollection } from '../../helpers/movies';
 import ImageLink from '../ImageLink/ImageLink';
 import _ from 'lodash';
 
-class Collection extends Component {
+class Collections extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -24,7 +24,7 @@ class Collection extends Component {
               title={movie.title}
               rating={movie.vote_average}
               releaseDate={movie.release_date}
-              to={`/movie/${movie.id}`}
+              to={`/movies/${movie.id}`}
             />
           </div>
         );
@@ -71,4 +71,4 @@ class Collection extends Component {
   }
 }
 
-export default Collection;
+export default Collections;
