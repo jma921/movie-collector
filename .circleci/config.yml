@@ -37,11 +37,11 @@ jobs:
       - run: npm test
 
       - deploy: 
-        name: Deploy to firebase hosting.
-        command: |
-          if [ "${CIRCLE_BRANCH}" == "master" ]; then
-            npm run build
-            firebase deploy
-          fi
+          name: Deploy to firebase hosting.
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              npm run build
+              firebase deploy
+            fi
 
 
