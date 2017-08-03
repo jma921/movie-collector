@@ -1,4 +1,4 @@
-import { ref, firebaseAuth } from '../config/constants';
+import { ref } from '../config/constants';
 
 export function addMovie(movie, uid) {
   const { id } = movie;

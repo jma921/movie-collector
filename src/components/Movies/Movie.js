@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
 import { addMovie, findMovieById, removeMovie } from '../../helpers/movies';
 
 class Movie extends Component {
@@ -129,6 +128,7 @@ class Movie extends Component {
                   <div className="col-md-6 p-5">
                     <div className="embed-responsive embed-responsive-16by9">
                       <iframe
+                        title={this.state.video.id}
                         className="embed-responsive-item"
                         width="560"
                         height="315"

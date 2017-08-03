@@ -19,7 +19,6 @@ import {
   DropdownMenu,
   DropdownItem,
 } from 'reactstrap';
-import { NavLink as NavLinkReactstrap } from 'reactstrap';
 import Login from './Login';
 import Register from './Register';
 import Home from './Home';
