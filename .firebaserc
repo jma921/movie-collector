@@ -1,5 +1,5 @@
 {
   "projects": {
-    "default": process.env.REACT_APP_FIREBASE_URL
+    "default": movie-collector-9f2c3
   }
 }
