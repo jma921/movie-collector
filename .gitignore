@@ -15,4 +15,5 @@ build
 npm-debug.log
 
 # firebase 
-#.firebaserc
+.firebaserc
+firebase.json
