@@ -27,7 +27,7 @@ jobs:
           - v1-dependencies-
 
       - run: npm install
-      - run: npm install -g firebase-tools
+      - run: npm install firebase-tools
 
       - save_cache:
           paths:
