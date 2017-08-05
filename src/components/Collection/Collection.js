@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { getMoviesInCollection } from '../../helpers/movies';
+import PropTypes from 'prop-types';
 import ImageLink from '../ImageLink/ImageLink';
 import _ from 'lodash';
 
@@ -9,6 +10,7 @@ class Collection extends Component {
     this.state = {
       movies: null,
     };
+    console.log(this.props);
   }
 
   renderMovies = () => {
@@ -22,7 +24,6 @@ class Collection extends Component {
               path={movie.poster_path}
               alt={`${movie.title} Thumbnail`}
               title={movie.title}
-              rating={movie.vote_average}
               releaseDate={movie.release_date}
               to={`/movie/${movie.id}`}
             />
@@ -38,7 +39,6 @@ class Collection extends Component {
   async componentWillMount() {
     let movies;
     const { uid } = this.props.match.params;
-    console.log(uid);
     if (uid) {
       movies = await getMoviesInCollection(uid);
       this.setState({
@@ -70,5 +70,12 @@ class Collection extends Component {
     );
   }
 }
+
+Collection.propTypes = {
+  history: PropTypes.object,
+  location: PropTypes.object,
+  match: PropTypes.object,
+  user: PropTypes.object,
+};
 
 export default Collection;

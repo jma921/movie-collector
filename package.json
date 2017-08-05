@@ -10,7 +10,9 @@
     "bootstrap": "^4.0.0-alpha.6",
     "enzyme": "^2.9.1",
     "firebase": "^3.9.0",
+    "flow-bin": "^0.52.0",
     "lodash": "^4.17.4",
+    "prop-types": "^15.5.10",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-router-dom": "^4.1.2",
@@ -19,6 +21,7 @@
     "reactstrap": "^4.8.0"
   },
   "scripts": {
+    "flow": "flow",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",

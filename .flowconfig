@@ -1,0 +1,11 @@
+[ignore]
+
+.*/node_modules/protobufjs/src/bower.json
+
+[include]
+
+[libs]
+
+[lints]
+
+[options]

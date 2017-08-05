@@ -1,11 +1,12 @@
 import React from 'react';
 import { Route, Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import './ImageLink.css';
 
-const ImageLink = ({ to, path, alt, title, releaseDate }) => {
+const ImageLink = props => {
+  const { to, path, alt, title, releaseDate } = props;
   const releaseYear = releaseDate.split('-')[0];
   const url = `https://image.tmdb.org/t/p/w342/${path}`;
-  console.log(url);
   return (
     <Route
       path={to}
@@ -20,6 +21,14 @@ const ImageLink = ({ to, path, alt, title, releaseDate }) => {
         </Link>}
     />
   );
+};
+
+ImageLink.propTypes = {
+  to: PropTypes.string.isRequired,
+  path: PropTypes.string,
+  alt: PropTypes.string,
+  title: PropTypes.string.isRequired,
+  releaseDate: PropTypes.string,
 };
 
 export default ImageLink;
