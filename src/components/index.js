@@ -19,6 +19,8 @@ import {
   DropdownMenu,
   DropdownItem,
 } from 'reactstrap';
+import CopyToClipboard from 'react-copy-to-clipboard';
+import Loading from './Loading/Loading';
 import { logout } from '../helpers/auth';
 import { firebaseAuth } from '../config/constants';
 // import Login from './Login';
@@ -99,6 +101,15 @@ export default class App extends Component {
     isOpen: false,
     user: null,
   };
+  _searchSubmit = e => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      console.log(e);
+    }
+  };
+  _copyToClipboard = e => {
+    console.log(e);
+  };
   toggle = () => {
     this.setState({
       isOpen: !this.state.isOpen,
@@ -126,7 +137,7 @@ export default class App extends Component {
   }
   render() {
     return this.state.loading === true
-      ? <h1>Loading</h1>
+      ? <Loading />
       : <BrowserRouter>
           <div>
             <Navbar color="faded" light toggleable>
@@ -137,6 +148,25 @@ export default class App extends Component {
               </NavLink>
               <Collapse isOpen={this.state.isOpen} navbar>
                 <Nav className="ml-auto" navbar>
+                  {/* <NavItem>
+                    <div className="input-group">
+                      <input
+                        onKeyPress={this._searchSubmit}
+                        type="text"
+                        className="form-control"
+                        placeholder="Search for movie"
+                      />
+                      <span className="input-group-btn">
+                        <button
+                          onClick={this._searchSubmit}
+                          className="btn btn-secondary"
+                          type="button"
+                        >
+                          Go!
+                        </button>
+                      </span>
+                    </div>
+                  </NavItem> */}
                   {this.state.user
                     ? <NavItem>
                         <UncontrolledDropdown className="nav-item">
@@ -144,10 +174,6 @@ export default class App extends Component {
                             <i className="fa fa-plus" />
                           </DropdownToggle>
                           <DropdownMenu right>
-                            <DropdownLink
-                              label="Movie Collection"
-                              to="/collection"
-                            />
                             <DropdownLink label="Add A Movie" to="/addmovie" />
                           </DropdownMenu>
                         </UncontrolledDropdown>
@@ -164,6 +190,19 @@ export default class App extends Component {
                               Signed in as {this.state.user.email}
                             </DropdownItem>
                             <DropdownItem divider />
+                            <DropdownLink
+                              label="Movie Collection"
+                              to="/collection"
+                            />
+                            <DropdownItem>
+                              <CopyToClipboard
+                                text={`https://movie-collector-9f2c3.firebaseapp.com/${this
+                                  .state.user.uid}`}
+                                onCopy={this._copyToClipboard}
+                              >
+                                <span>Share Movie Collection Link</span>
+                              </CopyToClipboard>
+                            </DropdownItem>
                             <DropdownLink label="Settings" to="/settings" />
                             <DropdownItem onClick={() => logout()}>
                               Sign Out

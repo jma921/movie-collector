@@ -1,4 +1,5 @@
 import { ref } from '../config/constants';
+import _ from 'lodash';
 
 export function addMovie(movie, uid) {
   const { id } = movie;
@@ -23,5 +24,10 @@ export async function getMoviesInCollection(uid) {
     .orderByChild('title')
     .once('value');
   const movies = await collection.val();
-  return Object.values(movies);
+  const m = _.map(movies, 'data');
+  // const m = Object.keys(movies).map(movie => {
+  //   return { [movie]: movies[movie].data };
+  // });
+  console.log(Object.values(movies), m);
+  return m;
 }

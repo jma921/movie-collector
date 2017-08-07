@@ -13,9 +13,9 @@ class Collections extends Component {
 
   renderMovies = () => {
     if (this.state.movies) {
-      let sortedCollection = _.sortBy(this.state.movies, o => o.data.title);
+      let sortedCollection = _.sortBy(this.state.movies, o => o.title);
       let movies = sortedCollection.map((data, index) => {
-        const movie = data.data;
+        const movie = data;
         return (
           <div className="col-md-2" key={index}>
             <ImageLink
@@ -38,7 +38,6 @@ class Collections extends Component {
   async componentWillMount() {
     let movies;
     const { uid } = this.props.match.params;
-    console.log(uid);
     if (uid) {
       movies = await getMoviesInCollection(uid);
       this.setState({
